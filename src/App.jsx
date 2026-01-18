@@ -1,29 +1,33 @@
+import { Suspense } from 'react';
 import {
-  Header,
-  FloatingDock,
-  Hero,
-  Skill,
-  About,
-  Project,
-  Contact,
-  Footer,
+    Header,
+    Hero,
+    Skill,
+    About,
+    Project,
+    Contact,
+    Footer,
 } from './imports/Files';
-
+import Cta from './pages/Cta';
 function App() {
-  return (
-    <>
-        <Header />
-      <main className="mx-auto overflow-hidden border-[#EBEBED] px-5 md:max-w-3xl lg:border-r lg:border-l xl:max-w-5xl dark:border-zinc-800 selection:bg-black selection:text-gray dark:selection:bg-neutral-800 dark:selection:text-neutral-300">
-        <FloatingDock />
-        <Hero />
-        <Skill />
-        <About />
-        <Project />
-        <Contact />
-      </main>
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <main
+                className="relative z-10 xl:px-0 selection:bg-black selection:text-gray dark:selection:bg-neutral-800 dark:selection:text-neutral-300"
+            >
+                <Hero />
+                <Suspense fallback={<p>Loading...</p>}>
+                    <Project />
+                    <Skill />
+                    <About />
+                    <Cta />
+                    <Contact />
+                </Suspense>
+            </main>
+            <Footer />
+        </>
+    );
 }
 
 export default App;

@@ -31,7 +31,7 @@ export const Lens = ({
   return (
     <div
       ref={containerRef}
-      className="relative z-20 overflow-hidden rounded-lg"
+      className="relative z-20 rounded-xl"
       onMouseEnter={() => {
         setIsHovering(true);
       }}
