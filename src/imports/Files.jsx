@@ -1,10 +1,11 @@
-import About from '../pages/About';
-import Contact from '../pages/Contact';
-import Footer from '../pages/Footer';
-import Header from '../pages/Header';
-import Hero from '../pages/Hero';
-import Project from '../pages/Project';
-import Skill from '../pages/Skill';
+import { lazy } from 'react';
+const About = lazy(()=> import('../pages/About'));
+const Contact = lazy(()=> import('../pages/Contact'));
+const Footer = lazy(()=> import('../pages/Footer'));
+const Header = lazy(()=> import('../pages/Header'));
+const  Hero = lazy(()=> import('../pages/Hero'));
+const Project = lazy(()=> import('../pages/Project'));
+const Skill = lazy(()=> import("../pages/Skill"));
 import { socialLinks } from '../constants';
 import { useFormik } from 'formik';
 import Validation from '../schema/Validation';

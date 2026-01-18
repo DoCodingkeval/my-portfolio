@@ -1,15 +1,4 @@
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap'
-
 const Avatar = () => {
-    useGSAP(()=>{
-        gsap.to(".smile",{
-            width: "100%",
-            duration: 2,
-            repeat: -1,
-            yoyo: true,
-        })
-    },[]);
     return (
         <div className='bg-offblue mb-8 md:mb-10 flex flex-col justify-between h-20 w-20 md:w-24 border-3 md:h-24 p-3 md:p-4.5'>
             <div className='flex flex-col gap-1 items-center justify-between'>
@@ -26,7 +15,7 @@ const Avatar = () => {
                     <polygon points="5,0 10,12 0,12" fill="black" />
                 </svg>
             </div>
-            <span className='smile h-1 mx-auto bg-black inline-block' />
+            <span className='h-1 mx-auto bg-black inline-block w-full' />
         </div>
     )
 }

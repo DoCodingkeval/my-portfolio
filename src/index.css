@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "Space Grotesk";
-    src: url("/public/fonts/SpaceGrotesk-Regular.woff2") format("woff2");
+    src: url("/fonts/SpaceGrotesk-Regular.woff2") format("woff2");
     font-style: normal;
     font-display: swap;
     ascent-override: 90%;
@@ -13,7 +13,7 @@
 
 @font-face {
     font-family: "Abc";
-    src: url("/public/fonts/abc.woff2") format("woff2");
+    src: url("/fonts/abc.woff2") format("woff2");
     font-style: normal;
     font-display: swap;
     ascent-override: 90%;
@@ -24,7 +24,7 @@
 
 @font-face {
     font-family: "funnel display";
-    src: url("/public/fonts/FunnelDisplay-Bold.woff2") format("woff2");
+    src: url("/fonts/FunnelDisplay-Bold.woff2") format("woff2");
     font-style: normal;
     font-display: swap;
     ascent-override: 90%;

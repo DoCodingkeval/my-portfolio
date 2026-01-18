@@ -10,7 +10,6 @@ const FullPageNav = ({ setShowMenu, showMenu }) => {
                     fullPageNav.current.style.maxHeight = `${fullPageNav.current.scrollHeight}px`;
                 } else {
                     fullPageNav.current.style.maxHeight = 0;
-                    fullPageNav.current.style.pointerEvents = "none";
                 }
             }
         }
@@ -19,12 +18,12 @@ const FullPageNav = ({ setShowMenu, showMenu }) => {
         return () => window.removeEventListener("resize", fullPageNavfunc);
     }, [showMenu])
     return (
-        <div ref={fullPageNav} className="bg-primary fixed inset-0 w-full full-page-navigation z-50 overflow-hidden transition-all delay-100 duration-1000 ease-[cubic-bezier(.075,.82,.165,1)]" style={{ maxHeight: 0 }}>
-            <div style={{ paddingTop: "var(--top)" }} className='max-w-7xl pb-5 px-6 mx-auto min-h-screen overflow-y-auto'>
+        <div ref={fullPageNav} className="bg-primary fixed inset-0 w-full full-page-navigation z-50 transition-all delay-100 duration-1000 ease-[cubic-bezier(.075,.82,.165,1)] pointer-events-none">
+            <div style={{ paddingTop: "var(--top)" }} className='max-w-7xl pb-5 px-6 mx-auto min-h-screen overflow-y-auto pointer-events-auto'>
                 <ul className='space-y-8 w-full'>
                     {navLinks.map((link, index) => (
-                        <li key={link.id || index} className='relative w-full group flex items-center will-change-transform overflow-hidden'>
-                            <a onClick={() => setShowMenu(false)} href={`#${link.href}`} className='uppercase text-5xl md:text-6xl lg:text-7xl xl:text-8xl group-hover:scale-y-5 group-hover:-translate-y-full w-full inline-block transition-all ease-[cubic-bezier(.4,0,.2,1)] duration-500'>{link.name}
+                        <li key={link.id || index} className='relative w-full group flex items-center will-change-transform overflow-hidden pointer-events-auto'>
+                            <a onClick={() => setShowMenu(false)} href={`#${link.href}`} className='uppercase text-5xl md:text-6xl lg:text-7xl xl:text-8xl group-hover:scale-y-5 group-hover:-translate-y-full w-full inline-block transition-all ease-[cubic-bezier(.4,0,.2,1)] duration-500 pointer-events-auto'>{link.name}
                             </a>
                             <a onClick={() => setShowMenu(false)} href={`#${link.href}`} className='w-full flex items-center gap-5 font-times! transition-all duration-500 ease-[cubic-bezier(.4,0,.2,1)] absolute left-0 top-0 translate-y-full group-hover:translate-y-0 text-5xl md:text-6xl lg:text-7xl xl:text-8xl uppercase italic text-coral'>{link.name}
                                 <svg width="56" height="41" viewBox="0 0 56 41" fill="none" xmlns="http://www.w3.org/2000/svg">

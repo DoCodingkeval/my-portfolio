@@ -48,7 +48,7 @@ const About = () => {
                     <p className='text-base md:text-lg lg:text-xl'>"I build clean & scalable interfaces."</p>
                 </div>
                 <div className="relative">
-                    <p className="text-gray about-me text-base md:text-lg xl:text-xl leading-9 md:leading-11">
+                    <p className="text-gray about-me will-change-transform text-base md:text-lg xl:text-xl leading-9 md:leading-11">
                         I’m an associate software engineer with a strong interest in web technologies
                         I enjoy turning ideas into clean, responsive, and functional websites. Always learning, always improving. I always like to explore and learn new technologies that add value to my skills and career.
                     </p>

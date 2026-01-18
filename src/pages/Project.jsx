@@ -44,7 +44,7 @@ const Project = () => {
     }, []);
     return (
         <section
-            className="w-full project-section overflow-hidden"
+            className="w-full project-section"
             id="project"
         >
             <Container>
@@ -58,7 +58,7 @@ const Project = () => {
                     </div>
                     <div className="project-wrapper space-y-20 relative text-black dark:text-neutral-300">
                         {projects.map((project) => (
-                            <Card key={project.id} className={`max-w-lg lg:max-w-3xl mx-auto project-card not-first:absolute top-0 ${project.class}`}>
+                            <Card key={project.id} className={`max-w-lg lg:max-w-3xl mx-auto project-card not-first:absolute top-0 will-change-transform ${project.class}`}>
                                 <Lens>
                                     <img
                                         src={project.image}

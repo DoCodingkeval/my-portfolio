@@ -10,41 +10,13 @@ const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
     const header = useRef(null);
 
-    const handleThemeChange = () => {
-        const isDark = document.documentElement.classList.contains('dark');
-
-        if (isDark) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            setIcon('light');
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-            setIcon('dark');
-        }
-    };
-
     useEffect(() => {
-        const theme = localStorage.getItem('theme');
-
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark');
-            setIcon('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-            setIcon('light');
-        }
-    });
-
-    useEffect(() => {
-        const updateHeaderHeight = () => {
-            if (header.current) {
-                const height = header.current.offsetHeight;
-                document.documentElement.style.setProperty("--top", `${height}px`);
+        const observer  = new ResizeObserver((entries)=>{
+            for(let entry of entries){
+                document.documentElement.style.setProperty("--top", `${entry.contentRect.height}px`);
             }
-        }
-        updateHeaderHeight();
-        new ResizeObserver(updateHeaderHeight).observe(document.body);
+        });
+        if(header.current) observer.observe(header.current);
         document.body.style.overflow = showMenu ? "hidden" : "";
         const onScroll = () => {
             let height = 50;
@@ -57,6 +29,7 @@ const Header = () => {
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => {
             window.removeEventListener("scroll", onScroll);
+            observer.disconnect();
         }
     }, [showMenu]);
 
